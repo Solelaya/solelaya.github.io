@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" role="img" aria-label="Quizly: World Flags logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071226" />
+      <stop offset="100%" stop-color="#132a57" />
+    </linearGradient>
+  </defs>
+  <rect width="72" height="72" rx="16" fill="url(#bg)" />
+  <g transform="translate(-18 -18)">
+    <!-- Back portion of golden orbit ring -->
+    <path d="M24,62 C19,53 31,37 51,29 C69,22 83,24 85,33" fill="none" stroke="#F59E0B" stroke-width="3.6" stroke-linecap="round" />
+
+    <!-- Ocean Globe Sphere -->
+    <circle cx="50" cy="50" r="23" fill="#1D4ED8" />
+    <path d="M31,45 C32,33 43,27 54,28 C44,30 35,38 31,45 Z" fill="#38BDF8" fill-opacity="0.45" />
+
+    <!-- Stylized World Flag Continents -->
+    <path d="M32,37 C35,32 41,30 46,31 C45,35 42,37 37,39 C34,39 32,38 32,37 Z" fill="#EF4444" />
+    <path d="M29,43 C31,39 36,39 40,41 C41,45 38,48 34,48 C31,48 28,46 29,43 Z" fill="#10B981" />
+    <path d="M36,52 C40,51 44,54 44,58 C43,63 39,67 36,65 C35,61 34,55 36,52 Z" fill="#FBBF24" />
+    <path d="M49,33 C53,31 59,32 63,35 C61,39 56,41 51,40 C49,38 48,35 49,33 Z" fill="#F8FAFC" />
+    <path d="M52,32 C56,31 61,33 64,36 C60,36 55,35 51,35 Z" fill="#EF4444" />
+    <path d="M49,44 C54,42 61,44 63,49 C61,55 56,62 52,61 C49,57 47,48 49,44 Z" fill="#10B981" />
+    <path d="M62,36 C67,37 71,42 71,48 C68,51 64,51 61,47 C60,42 60,39 62,36 Z" fill="#FBBF24" />
+
+    <!-- Globe grid lines -->
+    <path d="M28,50 C38,46 62,46 72,50" fill="none" stroke="#DBEAFE" stroke-opacity="0.45" stroke-width="1.1" />
+    <path d="M50,27 C42,38 42,62 50,73" fill="none" stroke="#DBEAFE" stroke-opacity="0.4" stroke-width="1.1" />
+    <path d="M50,27 C58,38 58,62 50,73" fill="none" stroke="#DBEAFE" stroke-opacity="0.4" stroke-width="1.1" />
+    <circle cx="50" cy="50" r="23" fill="none" stroke="#93C5FD" stroke-opacity="0.55" stroke-width="1.2" />
+
+    <!-- Front Golden Orbit Ring -->
+    <path d="M85,33 C87,43 74,59 54,66 C36,72 25,69 24,62" fill="none" stroke="#FBBF24" stroke-width="3.8" stroke-linecap="round" />
+    <path d="M84,35 C83,44 70,58 53,64 C37,70 28,68 26,63" fill="none" stroke="#FEF08A" stroke-width="1.4" stroke-linecap="round" />
+
+    <!-- Champion Gold Shield Badge -->
+    <path d="M68,53 L81,57.5 L81,68.5 C81,76.5 74.8,81.8 68,84.5 C61.2,81.8 55,76.5 55,68.5 L55,57.5 Z" fill="#F59E0B" />
+    <path d="M68,54.4 L79.6,58.5 L79.6,68.5 C79.6,75.6 74.1,80.3 68,82.8 C61.9,80.3 56.4,75.6 56.4,68.5 L56.4,58.5 Z" fill="#FDE047" />
+    <path d="M68,56.8 L77.4,60.2 L77.4,68.4 C77.4,74.2 72.9,78.1 68,80.2 C63.1,78.1 58.6,74.2 58.6,68.4 L58.6,60.2 Z" fill="#0B1933" />
+
+    <!-- Crisp white 'Q' monogram -->
+    <circle cx="68" cy="68" r="5.8" fill="none" stroke="#FFFFFF" stroke-width="2.8" />
+    <path d="M69.6,70.2 L74.4,75.2" fill="none" stroke="#FBBF24" stroke-width="2.8" stroke-linecap="round" />
+  </g>
+</svg>
