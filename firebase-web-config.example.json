@@ -1,0 +1,8 @@
+{
+  "apiKey": "REPLACE_WITH_FIREBASE_WEB_API_KEY",
+  "authDomain": "REPLACE_WITH_PROJECT_ID.firebaseapp.com",
+  "projectId": "REPLACE_WITH_PROJECT_ID",
+  "appId": "REPLACE_WITH_FIREBASE_WEB_APP_ID",
+  "databaseId": "ai-studio-android-flagquiz-bf5fb558-058c-4197-86dc-c3aabb9903f6",
+  "deletionFunctionUrl": "https://us-central1-REPLACE_WITH_PROJECT_ID.cloudfunctions.net/submitAccountDeletionRequest"
+}

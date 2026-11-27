@@ -3,62 +3,569 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Account Deletion — Quizly: World Flags</title>
-  <meta name="description" content="How to permanently delete your Quizly: World Flags account and cloud data in-app or by email." />
+  <title>Account &amp; Data Deletion Web Form — Quizly: World Flags</title>
+  <meta name="description" content="Official Google Play Account &amp; Data Deletion Web Form for Quizly: World Flags by Solelaya Dev. Delete your account instantly in-app or submit a verified web deletion request." />
   <meta name="theme-color" content="#071226" />
+  <link rel="canonical" href="https://solelaya.github.io/account-deletion.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="shortcut icon" href="favicon.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quizly: World Flags" />
   <meta property="og:url" content="https://solelaya.github.io/account-deletion.html" />
-  <meta property="og:title" content="Account Deletion — Quizly: World Flags" />
-  <meta property="og:description" content="Request instant in-app or email-assisted deletion of your Quizly: World Flags account, wallet, and history." />
+  <meta property="og:title" content="Account &amp; Data Deletion Web Form — Quizly: World Flags" />
+  <meta property="og:description" content="Request instant in-app or web-form deletion of your Quizly: World Flags account, coin wallet, tickets, and history." />
   <meta property="og:image" content="https://solelaya.github.io/og-image.jpg" />
   <style>
+    :root {
+      --bg: #071226;
+      --surface: #0f2042;
+      --surface-alt: #0b1933;
+      --border: #1e3562;
+      --text: #f8fafc;
+      --body: #cbd5e1;
+      --muted: #94a3b8;
+      --emerald: #10b981;
+      --gold: #f59e0b;
+      --blue: #38bdf8;
+      --danger: #f87171;
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #071226;
-      color: #f8fafc;
-      line-height: 1.7;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
-    .container { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+    .container { max-width: 820px; margin: 0 auto; padding: 32px 20px 64px; }
     .card {
-      background: #0f2042;
-      border: 1px solid #1e3562;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
+      margin-bottom: 20px;
     }
-    h1 { margin-top: 0; font-size: 26px; }
-    h2 { color: #34d399; font-size: 18px; margin-top: 24px; }
-    p, li { color: #cbd5e1; }
-    a { color: #38bdf8; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      margin-bottom: 10px;
+    }
+    h1 { margin: 0 0 8px; font-size: 26px; }
+    h2 { color: #34d399; font-size: 18px; margin: 24px 0 10px; }
+    p, li { color: var(--body); }
+    a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--body);
+      margin: 14px 0 18px;
+    }
+    .deletion-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 18px;
+      border-radius: 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+    .field-group { display: grid; gap: 6px; }
+    .field-group label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .field-hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .field-input, .field-select, .field-textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .field-input:focus-visible, .field-select:focus-visible, .field-textarea:focus-visible,
+    .btn-primary:focus-visible, .btn-secondary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--body);
+      cursor: pointer;
+    }
+    .checkbox-row input {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: var(--emerald);
+    }
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #dc2626;
+      color: #ffffff;
+    }
+    .btn-primary:hover { background: #b91c1c; text-decoration: none; }
+    .btn-primary:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.45);
+      color: var(--blue);
+    }
+    .btn-secondary:hover { background: rgba(56, 189, 248, 0.24); text-decoration: none; }
+    .status-box {
+      margin-top: 6px;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      background: rgba(16, 185, 129, 0.12);
+      color: #d1fae5;
+    }
+    .status-box.is-error {
+      border-color: rgba(248, 113, 113, 0.55);
+      background: rgba(220, 38, 38, 0.16);
+      color: #fecaca;
+    }
+    .status-box[hidden] { display: none; }
+    .request-tracker {
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--body);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .request-tracker[hidden] { display: none; }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fcd34d;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .data-table th, .data-table td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--body);
+      vertical-align: top;
+    }
+    .data-table th { color: var(--gold); font-weight: 700; }
+    footer {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 24px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="card">
-      <p><a href="index.html">← Back to Quizly: World Flags</a></p>
+      <p style="margin-top:0;"><a href="index.html">← Back to Quizly: World Flags</a></p>
+      <div class="badge">GOOGLE PLAY DATA SAFETY · OFFICIAL DELETION PORTAL</div>
       <h1>Account &amp; Data Deletion Request</h1>
-      <p><strong>App:</strong> Quizly: World Flags &nbsp;|&nbsp; <strong>Developer:</strong> Solelaya Dev</p>
+      <p style="margin-bottom:0;">
+        Manage permanent deletion of your <strong>Quizly: World Flags</strong> account and cloud records either instantly inside the Android app or using the web request form below if you have already uninstalled the app.
+      </p>
 
-      <h2>Option 1: Instant In-App Deletion (Recommended)</h2>
+      <div class="meta-strip">
+        <span><strong>App Name:</strong> Quizly: World Flags</span>
+        <span><strong>Package ID:</strong> com.aistudio.flagquiz.wvxrkm</span>
+        <span><strong>Developer:</strong> Solelaya Dev</span>
+        <span><strong>Support Email:</strong> <a href="mailto:solelaya.dev@gmail.com">solelaya.dev@gmail.com</a></span>
+      </div>
+
+      <h2>Option 1: Instant In-App Deletion (Fastest — Immediate)</h2>
       <ol>
-        <li>Open <strong>Quizly: World Flags</strong> on your Android device and sign in to your Google account.</li>
-        <li>Open your <strong>Profile</strong> screen (tap your avatar on Home).</li>
-        <li>Scroll down and tap <strong>Delete Account &amp; All Data</strong>.</li>
-        <li>Confirm <strong>Delete Forever</strong>. Your Cloud Firestore profile, Firebase Auth user record, and local device data are erased immediately.</li>
+        <li>Open <strong>Quizly: World Flags</strong> on your Android device and sign in with your Google account.</li>
+        <li>Open your <strong>Profile</strong> screen (tap your avatar on the Home screen).</li>
+        <li>Scroll to the bottom and tap <strong>Delete Account &amp; All Data</strong>.</li>
+        <li>Confirm <strong>Delete Forever</strong>. Your Firebase Authentication record, Cloud Firestore profile, draw tickets, referral logs, and local device storage are permanently erased immediately.</li>
       </ol>
 
-      <h2>Option 2: Email Deletion Request (If You Uninstalled the App)</h2>
-      <p>Send an email from the Google email address linked to your account to <a href="mailto:solelaya.dev@gmail.com?subject=Quizly%20Account%20Deletion%20Request">solelaya.dev@gmail.com</a> with the subject <em>"Quizly Account Deletion Request"</em>. Requests are verified and completed within 7 business days.</p>
+      <h2 id="deletion-form">Option 2: Account Deletion Web Form (If You Uninstalled the App)</h2>
+      <p>
+        Submit the form below using the Google email address linked to your Quizly account. Submitting sends an automated notification to our support team, logs your request status in our secure Firestore <code>deletion_requests</code> queue, and completes verification within <strong>7 business days</strong>.
+      </p>
 
-      <h2>Data Deleted vs. Retained</h2>
-      <ul>
-        <li><strong>Permanently Deleted:</strong> Firebase Auth UID, email address, username, coin wallet, quiz results, raffle tickets, referral logs, and pending/completed cashout request records linked to your account.</li>
-        <li><strong>Retention Exceptions:</strong> Aggregated, non-identifiable financial accounting logs required by tax or anti-fraud compliance may be retained for up to 90 days without personal identifiers.</li>
-      </ul>
+      <form id="account-deletion-form" class="deletion-form" novalidate>
+        <div class="field-group">
+          <label for="del-email">Google Account Email Used in Quizly *</label>
+          <input
+            type="email"
+            id="del-email"
+            name="email"
+            class="field-input"
+            required
+            autocomplete="email"
+            placeholder="you@gmail.com"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="del-username">Quizly Username or Referral Code (Optional)</label>
+          <input
+            type="text"
+            id="del-username"
+            name="username"
+            class="field-input"
+            maxlength="40"
+            placeholder="e.g. FlagExplorer or FLAG-1234"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="del-scope">Deletion Scope *</label>
+          <select id="del-scope" name="scope" class="field-select">
+            <option value="full">Full Account &amp; All Cloud Data Deletion (Permanent)</option>
+            <option value="partial_history">Partial Deletion — Clear Quiz &amp; Referral History Only (Keep Account)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="del-reason">Reason for Deletion Request *</label>
+          <textarea
+            id="del-reason"
+            name="reason"
+            class="field-textarea"
+            rows="4"
+            maxlength="500"
+            required
+            placeholder="Please tell us why you are requesting account or data deletion (e.g., no longer playing, privacy preference, switching accounts)..."
+          ></textarea>
+          <span class="field-hint">Required for audit verification (5–500 characters). You may also include any pending payout reference code (FLG-...).</span>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="del-confirm" required />
+          <span>
+            I confirm that I am the owner of this account and understand that permanent account deletion cannot be undone and forfeits any unredeemed Coin balance, active Prize Draw tickets, and streak progress linked to this account.
+          </span>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" id="del-submit-btn" class="btn-primary">Submit Deletion Request</button>
+          <button type="button" id="del-copy-btn" class="btn-secondary" hidden>Copy Request Details</button>
+          <a id="del-mailto-link" class="btn-secondary" href="mailto:solelaya.dev@gmail.com?subject=Quizly%20Account%20Deletion%20Request" hidden>Open in Email App</a>
+        </div>
+
+        <div id="del-status-box" class="status-box" role="status" aria-live="polite" hidden></div>
+        <div id="del-request-tracker" class="request-tracker" hidden>
+          <span id="del-tracker-ref">Reference: —</span>
+          <span id="del-tracker-status" class="status-pill">STATUS: PENDING</span>
+        </div>
+      </form>
+
+      <h2>Data Deleted vs. Retention Exceptions</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Action &amp; Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Account &amp; Profile</strong><br />Firebase Auth UID, email, username, avatar, country verification</td>
+            <td>Permanently deleted immediately in-app, or within 7 business days via web form.</td>
+          </tr>
+          <tr>
+            <td><strong>Gameplay &amp; Rewards</strong><br />Coin wallet, quiz results, daily streaks, draw tickets, referral logs, notification inbox</td>
+            <td>Permanently deleted with your account (or cleared individually when choosing Partial Deletion).</td>
+          </tr>
+          <tr>
+            <td><strong>Retention Exception</strong><br />De-identified payout accounting &amp; anti-fraud audit totals</td>
+            <td>Aggregated, non-identifiable financial/anti-fraud records may be retained for up to <strong>90 days</strong> where required for tax, payment dispute, or fraud-prevention compliance, with personal identifiers stripped.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <footer>
+      Quizly: World Flags · Developed &amp; maintained by Solelaya Dev (<a href="mailto:solelaya.dev@gmail.com">solelaya.dev@gmail.com</a>) · <a href="privacy-policy.html">Privacy Policy</a>
+    </footer>
   </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById("account-deletion-form");
+      var emailInput = document.getElementById("del-email");
+      var usernameInput = document.getElementById("del-username");
+      var scopeSelect = document.getElementById("del-scope");
+      var reasonInput = document.getElementById("del-reason");
+      var confirmBox = document.getElementById("del-confirm");
+      var submitBtn = document.getElementById("del-submit-btn");
+      var statusBox = document.getElementById("del-status-box");
+      var trackerBox = document.getElementById("del-request-tracker");
+      var trackerRefEl = document.getElementById("del-tracker-ref");
+      var trackerStatusEl = document.getElementById("del-tracker-status");
+      var copyBtn = document.getElementById("del-copy-btn");
+      var mailtoLink = document.getElementById("del-mailto-link");
+
+      var lastGeneratedBody = "";
+      var deletionFunctionEndpoint = "";
+
+      function showStatus(message, isError) {
+        if (!statusBox) return;
+        statusBox.textContent = message;
+        statusBox.className = isError ? "status-box is-error" : "status-box";
+        statusBox.hidden = false;
+      }
+
+      function showTracker(refId, statusText) {
+        if (!trackerBox || !trackerRefEl || !trackerStatusEl) return;
+        trackerRefEl.textContent = "Reference ID: " + refId + " · Collection: deletion_requests";
+        trackerStatusEl.textContent = "STATUS: " + statusText;
+        trackerBox.hidden = false;
+      }
+
+      function generateFallbackRefId() {
+        var now = new Date();
+        var yyyy = now.getUTCFullYear();
+        var mm = String(now.getUTCMonth() + 1).padStart(2, "0");
+        var dd = String(now.getUTCDate()).padStart(2, "0");
+        var rand = Math.floor(1000 + Math.random() * 9000);
+        return "DEL-" + yyyy + mm + dd + "-" + rand;
+      }
+
+      function isSafeHttpsUrl(url) {
+        return typeof url === "string" &&
+          url.trim().indexOf("https://") === 0 &&
+          url.indexOf("REPLACE_") === -1;
+      }
+
+      // Resolve optional Firebase Cloud Function endpoint from hosted firebase-web-config.json
+      function resolveCloudFunctionEndpoint() {
+        if (typeof window.fetch !== "function") return Promise.resolve("");
+        if (deletionFunctionEndpoint) return Promise.resolve(deletionFunctionEndpoint);
+        return window.fetch("firebase-web-config.json", { cache: "no-store" })
+          .then(function (res) {
+            if (!res.ok) return null;
+            return res.json();
+          })
+          .then(function (cfg) {
+            if (!cfg) return "";
+            if (isSafeHttpsUrl(cfg.deletionFunctionUrl)) {
+              deletionFunctionEndpoint = cfg.deletionFunctionUrl.trim();
+              return deletionFunctionEndpoint;
+            }
+            if (cfg.projectId && typeof cfg.projectId === "string" && cfg.projectId.indexOf("REPLACE_") !== 0) {
+              deletionFunctionEndpoint = "https://us-central1-" + encodeURIComponent(cfg.projectId.trim()) +
+                ".cloudfunctions.net/submitAccountDeletionRequest";
+              return deletionFunctionEndpoint;
+            }
+            return "";
+          })
+          .catch(function () {
+            return "";
+          });
+      }
+
+      function buildFallbackEmailPayload(refId, email, username, scopeLabel, reason) {
+        var subject = "Quizly Account Deletion Request [" + refId + "]";
+        var bodyLines = [
+          "Hello Solelaya Dev Privacy Team,",
+          "",
+          "Please process the following Quizly: World Flags data deletion request:",
+          "Reference ID: " + refId,
+          "App Package: com.aistudio.flagquiz.wvxrkm",
+          "Google Account Email: " + email,
+          "Username / Referral Code: " + (username || "Not provided"),
+          "Deletion Scope: " + scopeLabel,
+          "Reason for Deletion: " + reason,
+          "",
+          "I confirm I am the owner of this account and understand permanent deletion cannot be undone."
+        ];
+        lastGeneratedBody = bodyLines.join("\n");
+        var mailtoHref = "mailto:solelaya.dev@gmail.com?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(lastGeneratedBody);
+        if (mailtoLink) {
+          mailtoLink.setAttribute("href", mailtoHref);
+          mailtoLink.hidden = false;
+        }
+        if (copyBtn) copyBtn.hidden = false;
+        return mailtoHref;
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var email = (emailInput.value || "").trim();
+          var username = (usernameInput.value || "").trim();
+          var scope = scopeSelect.value === "partial_history" ? "partial_history" : "full";
+          var scopeLabel = scope === "partial_history"
+            ? "Partial Deletion (Quiz & Referral History Only)"
+            : "Full Account & All Cloud Data Deletion";
+          var reason = (reasonInput.value || "").trim();
+
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showStatus("Please enter a valid Google email address linked to your Quizly account.", true);
+            emailInput.focus();
+            return;
+          }
+          if (reason.length < 5) {
+            showStatus("Please enter a brief reason (at least 5 characters) for your deletion request.", true);
+            reasonInput.focus();
+            return;
+          }
+          if (!confirmBox.checked) {
+            showStatus("Please check the confirmation box before submitting your request.", true);
+            confirmBox.focus();
+            return;
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting Request…";
+          }
+
+          resolveCloudFunctionEndpoint().then(function (endpointUrl) {
+            if (isSafeHttpsUrl(endpointUrl)) {
+              return window.fetch(endpointUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  email: email,
+                  username: username,
+                  scope: scope,
+                  reason: reason,
+                  confirmed: true,
+                  packageId: "com.aistudio.flagquiz.wvxrkm"
+                })
+              })
+                .then(function (res) {
+                  return res.json().then(function (data) {
+                    return { ok: res.ok, data: data };
+                  });
+                })
+                .then(function (result) {
+                  if (!result.ok || !result.data || !result.data.ok) {
+                    throw new Error((result.data && result.data.error) || "Cloud Function rejected request");
+                  }
+                  var refId = result.data.referenceId || generateFallbackRefId();
+                  var reqStatus = result.data.status || "PENDING";
+                  buildFallbackEmailPayload(refId, email, username, scopeLabel, reason);
+                  showTracker(refId, reqStatus);
+                  showStatus(
+                    result.data.message ||
+                      ("Request " + refId + " has been saved to deletion_requests (Status: " + reqStatus + ") and sent to Solelaya Dev support."),
+                    false
+                  );
+                })
+                .catch(function () {
+                  // Graceful fallback if Cloud Function is unreachable or not deployed yet
+                  var fallbackRef = generateFallbackRefId();
+                  var mailtoHref = buildFallbackEmailPayload(fallbackRef, email, username, scopeLabel, reason);
+                  showTracker(fallbackRef, "EMAIL FALLBACK READY");
+                  showStatus(
+                    "Automated cloud queue is currently offline — Request " + fallbackRef +
+                    " has been prepared for direct email delivery to solelaya.dev@gmail.com. Use 'Open in Email App' or 'Copy Request Details' above.",
+                    false
+                  );
+                  try { window.location.href = mailtoHref; } catch (_) {}
+                });
+            }
+
+            // Static hosting fallback when firebase-web-config.json / Cloud Function is not yet published
+            var refId = generateFallbackRefId();
+            var mailtoHref = buildFallbackEmailPayload(refId, email, username, scopeLabel, reason);
+            showTracker(refId, "READY TO SEND");
+            showStatus(
+              "Request " + refId + " prepared! Your email app should open automatically to send from " +
+              email + " to solelaya.dev@gmail.com (processed within 7 business days). If your email app did not open, use 'Open in Email App' or 'Copy Request Details' above.",
+              false
+            );
+            try { window.location.href = mailtoHref; } catch (_) {}
+          }).finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Submit Deletion Request";
+            }
+          });
+        });
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+          if (!lastGeneratedBody) return;
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+            navigator.clipboard.writeText("To: solelaya.dev@gmail.com\n\n" + lastGeneratedBody)
+              .then(function () {
+                showStatus("Deletion request copied to clipboard! Paste and email it to solelaya.dev@gmail.com from your registered Google address.", false);
+              })
+              .catch(function () {
+                showStatus("Please send your deletion request directly to solelaya.dev@gmail.com from your registered Google address.", false);
+              });
+          } else {
+            showStatus("Please send your deletion request directly to solelaya.dev@gmail.com from your registered Google address.", false);
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
